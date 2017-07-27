@@ -1,0 +1,40 @@
+#--------------------------------------------------
+# Répertoire : /photo/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+ErrorDocument 404 /galerie-photo/erreur.php
+
+# photo avec catégorie + signature + pager
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)\.html$   /galerie-photo/article.php?nomfichier=$1&id=$2&id_cat=$3&s=$4&p=$5 [L]
+
+
+# photo avec catégorie + signature
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)-([0-9]+)\.html$   /galerie-photo/article.php?nomfichier=$1&id=$2&id_cat=$3&s=$4 [L]
+
+# photo avec catégorie
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)\.html$   /galerie-photo/article.php?nomfichier=$1&id=$2&id_cat=$3 [L]
+
+# Page de listing
+RewriteRule ^([-a-zA-Z-0-9]+)-([0-9]+)-([0-9]+)\.html$   /galerie-photo/index-cat.php?nomfichier=$1&id=$2&p=$3 [L]
+
+
+
+
+
+
+
+
+
+
+
+

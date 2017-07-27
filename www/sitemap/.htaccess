@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^sitemap-agenda\.xml$  sitemap-agenda.php [L]
+RewriteRule ^sitemap-annuaire\.xml$  sitemap-annuaire.php [L]
+RewriteRule ^sitemap-edito\.xml$  sitemap-edito.php [L]
+RewriteRule ^sitemap-photo\.xml$  sitemap-photo.php [L]
+RewriteRule ^sitemap-shopping\.xml$  sitemap-shopping.php [L]
+RewriteRule ^sitemap-tag\.xml$  sitemap-tag.php [L]
+RewriteRule ^sitemap-image\.xml$  sitemap-image.php [L]
+RewriteRule ^sitemap-actualite\.xml$  sitemap-actualite.php [L]
+RewriteRule ^sitemap-video\.xml$  sitemap-video.php [L]

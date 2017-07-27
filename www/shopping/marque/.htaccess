@@ -1,0 +1,23 @@
+RedirectPermanent ?p=1 http://www.mango-surf.biz/galerie-photo/photographe/
+
+
+
+
+#--------------------------------------------------
+# Répertoire : /photo/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+ErrorDocument 404 /shopping/erreur.php
+
+# Page de listing portofolio
+RewriteRule ^([-a-zA-Z-0-9]+)-([0-9]+)-([0-9]+)\.html$   /shopping/marque/marque.php?nomfichier=$1&id=$2&p=$3 [L]

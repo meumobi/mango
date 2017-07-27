@@ -1,0 +1,2 @@
+RedirectMatch permanent /medias/gestion_newsletter/* http://www.mango-surf.com/
+

@@ -1,0 +1,3 @@
+User-Agent: *    
+Disallow: /medias/gestion_newsletter/
+Disallow: /medias/surf_gallerie_photo/2bgal/

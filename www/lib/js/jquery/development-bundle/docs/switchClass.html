@@ -1,0 +1,129 @@
+
+<ul class="UIAPIPlugin-toc">
+<li><a href="#overview">Overview</a></li>
+<li><a href="#options">Arguments</a></li>
+</ul>
+<div class="UIAPIPlugin">
+  <h1>jQuery UI switchClass</h1>
+  <div id="overview">
+    <h2 class="top-header">Overview</h2>
+    <div id="overview-main">
+        <div class="editsection" style="float:right;margin-left:5px;">[<a href="http://docs.jquery.com/action/edit/UI/Effects/switchClass?section=1" title="Edit section: switchClass( remove, add, [duration] )">edit</a>]</div><a name="switchClass.28_remove.2C_add.2C_.5Bduration.5D_.29"></a><h3>switchClass( remove, add, <span class="optional">[</span>duration<span class="optional">]</span> )</h3>
+<p>Switches from the class defined in the first argument to the class defined as second argument, using an optional transition.</p>
+    </div>
+    <div id="overview-dependencies">
+        <h3>Dependencies</h3>
+        <ul>
+<li>Effects Core</li>
+</ul>
+    </div>
+    <div id="overview-example">
+        <h3>Example</h3>
+        <div id="overview-example" class="example">
+<ul><li><a href="#demo"><span>Demo</span></a></li><li><a href="#source"><span>View Source</span></a></li></ul>
+<p><div id="demo" class="tabs-container" rel="170">
+Switch the class 'highlight' to 'blue' when a paragraph is clicked with a one second transition.<br />
+</p>
+<pre>$(&quot;p&quot;).<a href="http://docs.jquery.com/Events/click" title="Events/click">click</a>(function () {
+      $(this).<strong class="selflink">switchClass</strong>(&quot;highlight&quot;, &quot;blue&quot;, 1000);
+    });
+</pre>
+<p></div><div id="source" class="tabs-container">
+</p>
+<pre><!DOCTYPE html>
+<html>
+<head>
+  <link href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/>
+  <script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js&quot;></script>
+  <script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js&quot;></script>
+  <script src=&quot;http://ui.jquery.com/latest/ui/effects.core.js&quot;></script>
+<style type=&quot;text/css&quot;>
+  p { margin: 4px; font-size:16px; font-weight:bolder; 
+      cursor:pointer; }
+  .blue { background: blue; }
+  .highlight { background:yellow; }
+</style>
+  <script>
+  $(document).ready(function() {
+    $(&quot;p&quot;).<a href="http://docs.jquery.com/Events/click" title="Events/click">click</a>(function () {
+      $(this).<strong class="selflink">switchClass</strong>(&quot;highlight&quot;, &quot;blue&quot;, 1000);
+    });
+  });
+  </script>
+</head>
+<body style="font-size:62.5%;">
+  
+<p class=&quot;highlight&quot;>Click to switch</p>
+<p class=&quot;highlight&quot;>to blue</p>
+<p class=&quot;highlight&quot;>on these</p>
+<p class=&quot;highlight&quot;>paragraphs</p>
+
+</body>
+</html>
+</pre>
+<p></div>
+</p><p></div>
+    </div>
+  </div>
+  <div id="options">
+    <h2 class="top-header">Arguments</h2>
+    <ul class="options-list">
+      
+<li class="option" id="option-remove">
+  <div class="option-header">
+    <h3 class="option-name"><a href="#option-remove">remove</a></h3>
+    <dl>
+      <dt class="option-type-label">Type:</dt>
+        <dd class="option-type">String</dd>
+      
+    </dl>
+  </div>
+  <div class="option-description">
+    <p>The CSS class that will be removed.</p>
+  </div>
+</li>
+
+
+<li class="option" id="option-add">
+  <div class="option-header">
+    <h3 class="option-name"><a href="#option-add">add</a></h3>
+    <dl>
+      <dt class="option-type-label">Type:</dt>
+        <dd class="option-type">String</dd>
+      
+    </dl>
+  </div>
+  <div class="option-description">
+    <p>The CSS class that will be added.</p>
+  </div>
+</li>
+
+
+<li class="option" id="option-duration">
+  <div class="option-header">
+    <h3 class="option-name"><a href="#option-duration">duration</a></h3>
+    <dl>
+      <dt class="option-type-label">Type:</dt>
+        <dd class="option-type">String, Number</dd>
+      
+      <dt class="option-optional-label">Optional</dt>
+      
+    </dl>
+  </div>
+  <div class="option-description">
+    <p>A string representing one of the three predefined speeds ("slow", "normal", or "fast") or the number of milliseconds to run the animation (e.g. 1000).</p>
+  </div>
+</li>
+
+    </ul>
+  </div>
+</div>
+
+</p><!-- 
+Pre-expand include size: 5798 bytes
+Post-expand include size: 7570 bytes
+Template argument size: 4751 bytes
+Maximum: 2097152 bytes
+-->
+
+<!-- Saved in parser cache with key jqdocs_docs:pcache:idhash:2609-1!1!0!!en!2 and timestamp 20111201124210 -->

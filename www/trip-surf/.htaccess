@@ -1,0 +1,24 @@
+#--------------------------------------------------
+# Répertoire : /news/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+ErrorDocument 404 /trip-surf/erreur.php
+
+# Page accueil dossier
+RewriteRule ^s-([-a-zA-Z-0-9]+)--([0-9]+)\.html$   /trip-surf/home.php?nomfichier=$1&id=$2 [L]
+
+# Page du dossier
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)\.html$   /trip-surf/article.php?nomfichier=$1&id=$2&dossier=$3 [L]
+
+# Page du dossier + pager
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)-([0-9]+)\.html$   /trip-surf/article.php?nomfichier=$1&id=$2&dossier=$3&p=$4 [L]

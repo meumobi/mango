@@ -1,0 +1,4 @@
+AuthName "Veuillez renseigner votre identifiant et mot de passe"
+AuthType Basic
+AuthUserFile "/var/www/vhosts/mango-surf.com/www/admin/.htpasswd"
+Require valid-user

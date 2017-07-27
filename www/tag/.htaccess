@@ -1,0 +1,22 @@
+#--------------------------------------------------
+# Répertoire : /news/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+ErrorDocument 404 /tag/erreur.php
+
+
+# Article
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)\.html$   /tag/article.php?nomfichier=$1&id=$2&p=$3 [L]
+
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)\.html$   /tag/article.php?nomfichier=$1&id=$2 [L]
+

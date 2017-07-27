@@ -1,0 +1,289 @@
+Options +FollowSymlinks
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^mango-surf.com$
+RewriteRule ^(.*) http://www.mango-surf.com/$1 [QSA,L,R=301]
+
+RewriteCond %{HTTP_HOST} !www\.mango-surf.com$
+RewriteRule ^(.*) http://www.mango-surf.com/$1  [QSA,L,R=301] 
+RewriteCond %{THE_REQUEST} ^(GET|POST|HEAD)\ (/.*)?/index.(htm|html|php|asp)
+RewriteRule ^(.*)index.(htm|html|php|asp)$ /$1 [R=301,L]
+
+ErrorDocument 404 /corporate/plan-du-site.php
+
+### Gestion cache navigateur visiteur ###
+
+ExpiresActive On
+ExpiresDefault A0
+
+# Set up caching on media files for 1 year (forever?)
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$">
+ExpiresDefault A29030400
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Set up caching on media files for 1 week
+<FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+ExpiresDefault A604800
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Set up 2 Hour caching on commonly updated files
+<FilesMatch "\.(xml|txt|html|js|css)$">
+ExpiresDefault A7200
+Header append Cache-Control "proxy-revalidate"
+</FilesMatch>
+
+# Force no caching for dynamic files
+<FilesMatch "\.(php|cgi|pl|htm)$">
+ExpiresActive Off
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>
+
+
+
+RedirectPermanent /--4656.html http://www.mango-surf.com
+RedirectPermanent /--4661.html http://www.mango-surf.com
+RedirectPermanent /--1225.html http://www.mango-surf.com
+RedirectPermanent /--4648-.html http://www.mango-surf.com
+RedirectPermanent /--4659.html http://www.mango-surf.com
+RedirectPermanent /--4660.html http://www.mango-surf.com
+RedirectPermanent /--4657.html http://www.mango-surf.com
+RedirectPermanent /--4570.html http://www.mango-surf.com
+RedirectPermanent /--1283.html http://www.mango-surf.com
+RedirectPermanent /--4658.html http://www.mango-surf.com
+RedirectPermanent /--897.html http://www.mango-surf.com
+RedirectPermanent /--1377.html http://www.mango-surf.com
+RedirectPermanent /--1151.html http://www.mango-surf.com
+RedirectPermanent /--394.html http://www.mango-surf.com
+RedirectPermanent /--1140.html http://www.mango-surf.com
+RedirectPermanent /--1263.html http://www.mango-surf.com
+RedirectPermanent /--781.html http://www.mango-surf.com
+RedirectPermanent /--1139.html http://www.mango-surf.com
+RedirectPermanent /--209.html http://www.mango-surf.com
+RedirectPermanent /--1404.html http://www.mango-surf.com
+RedirectPermanent /--4150.html http://www.mango-surf.com
+RedirectPermanent /--1438.html http://www.mango-surf.com
+RedirectPermanent /--265.html http://www.mango-surf.com
+RedirectPermanent /--1471.html http://www.mango-surf.com
+RedirectPermanent /--1271.html http://www.mango-surf.com
+RedirectPermanent /--1197.html http://www.mango-surf.com
+RedirectPermanent /--1224.html http://www.mango-surf.com
+RedirectPermanent /--4665.html http://www.mango-surf.com
+RedirectPermanent /--877.html http://www.mango-surf.com
+RedirectPermanent /--658.html http://www.mango-surf.com
+RedirectPermanent /--1203.html http://www.mango-surf.com
+RedirectPermanent /--625.html http://www.mango-surf.com
+RedirectPermanent /--1355.html http://www.mango-surf.com
+RedirectPermanent /--1398.html http://www.mango-surf.com
+RedirectPermanent /--1484.html http://www.mango-surf.com
+RedirectPermanent /--4671.html http://www.mango-surf.com
+RedirectPermanent /--349.html http://www.mango-surf.com
+RedirectPermanent /--1399.html http://www.mango-surf.com
+RedirectPermanent /--1001.html http://www.mango-surf.com
+RedirectPermanent /--505.html http://www.mango-surf.com
+RedirectPermanent /--369.html http://www.mango-surf.com
+RedirectPermanent /--4635.html http://www.mango-surf.com
+RedirectPermanent /--1278.html http://www.mango-surf.com
+RedirectPermanent /--1420.html http://www.mango-surf.com
+RedirectPermanent /--1353.html http://www.mango-surf.com
+RedirectPermanent /--4587.html http://www.mango-surf.com
+RedirectPermanent /--1452.html http://www.mango-surf.com
+RedirectPermanent /--289.html http://www.mango-surf.com
+RedirectPermanent /--4591.html http://www.mango-surf.com
+RedirectPermanent /--1400.html http://www.mango-surf.com
+RedirectPermanent /--926.html http://www.mango-surf.com
+RedirectPermanent /--605.html http://www.mango-surf.com
+RedirectPermanent /--894.html http://www.mango-surf.com
+RedirectPermanent /--1418.html http://www.mango-surf.com
+RedirectPermanent /--438.html http://www.mango-surf.com
+RedirectPermanent /--510.html http://www.mango-surf.com
+RedirectPermanent /--4590.html http://www.mango-surf.com
+RedirectPermanent /--4629.html http://www.mango-surf.com
+RedirectPermanent /--403.html http://www.mango-surf.com
+RedirectPermanent /--1246.html http://www.mango-surf.com
+RedirectPermanent /--4614.html http://www.mango-surf.com
+RedirectPermanent /--4588.html http://www.mango-surf.com
+RedirectPermanent /--1425.html http://www.mango-surf.com
+RedirectPermanent /--583.html http://www.mango-surf.com
+RedirectPermanent /--373.html http://www.mango-surf.com
+RedirectPermanent /--902.html http://www.mango-surf.com
+RedirectPermanent /--1029.html http://www.mango-surf.com
+RedirectPermanent /--673.html http://www.mango-surf.com
+RedirectPermanent /--1345.html http://www.mango-surf.com
+RedirectPermanent /--296.html http://www.mango-surf.com
+RedirectPermanent /--4638.html http://www.mango-surf.com
+RedirectPermanent /--1180.html http://www.mango-surf.com
+RedirectPermanent /--681.html http://www.mango-surf.com
+RedirectPermanent /--1237.html http://www.mango-surf.com
+RedirectPermanent /--1391.html http://www.mango-surf.com
+RedirectPermanent /--1299.html http://www.mango-surf.com
+RedirectPermanent /--1352.html http://www.mango-surf.com
+RedirectPermanent /--1267.html http://www.mango-surf.com
+RedirectPermanent /--955.html http://www.mango-surf.com
+RedirectPermanent /--417.html http://www.mango-surf.com
+RedirectPermanent /--4604.html http://www.mango-surf.com
+RedirectPermanent /--290.html http://www.mango-surf.com
+RedirectPermanent /--637.html http://www.mango-surf.com
+RedirectPermanent /--1450.html http://www.mango-surf.com
+RedirectPermanent /--1102.html http://www.mango-surf.com
+RedirectPermanent /--1223.html http://www.mango-surf.com
+RedirectPermanent /--854.html http://www.mango-surf.com
+RedirectPermanent /--4669.html http://www.mango-surf.com
+RedirectPermanent /--703.html http://www.mango-surf.com
+RedirectPermanent /--690.html http://www.mango-surf.com
+RedirectPermanent /--1277.html http://www.mango-surf.com
+RedirectPermanent /--1422.html http://www.mango-surf.com
+RedirectPermanent /--1273.html http://www.mango-surf.com
+RedirectPermanent /--1341.html http://www.mango-surf.com
+RedirectPermanent /--483.html http://www.mango-surf.com
+RedirectPermanent /--327.html http://www.mango-surf.com
+RedirectPermanent /--1435.html http://www.mango-surf.com
+RedirectPermanent /--607.html http://www.mango-surf.com
+RedirectPermanent /--4603.html http://www.mango-surf.com
+RedirectPermanent /--1350.html http://www.mango-surf.com
+RedirectPermanent /--491.html http://www.mango-surf.com
+RedirectPermanent /--4667.html http://www.mango-surf.com
+RedirectPermanent /--919.html http://www.mango-surf.com
+RedirectPermanent /--1430.html http://www.mango-surf.com
+RedirectPermanent /--465.html http://www.mango-surf.com
+RedirectPermanent /--1115.html http://www.mango-surf.com
+RedirectPermanent /--1325.html http://www.mango-surf.com
+RedirectPermanent /--722.html http://www.mango-surf.com
+RedirectPermanent /--4599.html http://www.mango-surf.com
+RedirectPermanent /--378.html http://www.mango-surf.com
+RedirectPermanent /--993.html http://www.mango-surf.com
+RedirectPermanent /--1417.html http://www.mango-surf.com
+RedirectPermanent /--936.html http://www.mango-surf.com
+RedirectPermanent /--577.html http://www.mango-surf.com
+RedirectPermanent /--1297.html http://www.mango-surf.com
+RedirectPermanent /--802.html http://www.mango-surf.com
+RedirectPermanent /--1254.html http://www.mango-surf.com
+RedirectPermanent /--1298.html http://www.mango-surf.com
+RedirectPermanent /--1284.html http://www.mango-surf.com
+RedirectPermanent /--1265.html http://www.mango-surf.com
+RedirectPermanent /--1423.html http://www.mango-surf.com
+RedirectPermanent /--1020.html http://www.mango-surf.com
+RedirectPermanent /--517.html http://www.mango-surf.com
+RedirectPermanent /--1169.html http://www.mango-surf.com
+RedirectPermanent /--1031.html http://www.mango-surf.com
+RedirectPermanent /--1316.html http://www.mango-surf.com
+RedirectPermanent /--4627.html http://www.mango-surf.com
+RedirectPermanent /--1242.html http://www.mango-surf.com
+RedirectPermanent /--1366.html http://www.mango-surf.com
+RedirectPermanent /--1245.html http://www.mango-surf.com
+RedirectPermanent /--1166.html http://www.mango-surf.com
+RedirectPermanent /--455.html http://www.mango-surf.com
+RedirectPermanent /--1056.html http://www.mango-surf.com
+RedirectPermanent /--4607.html http://www.mango-surf.com
+RedirectPermanent /--1334.html http://www.mango-surf.com
+RedirectPermanent /--4656.html http://www.mango-surf.com
+RedirectPermanent /--4661.html http://www.mango-surf.com
+RedirectPermanent /--4648-.html http://www.mango-surf.com
+RedirectPermanent /--4659.html http://www.mango-surf.com
+RedirectPermanent /--4660.html http://www.mango-surf.com
+RedirectPermanent /--4657.html http://www.mango-surf.com
+RedirectPermanent /--4570.html http://www.mango-surf.com
+RedirectPermanent /--4658.html http://www.mango-surf.com
+RedirectPermanent /--4665.html http://www.mango-surf.com
+RedirectPermanent /--4587.html http://www.mango-surf.com
+RedirectPermanent /--4588.html http://www.mango-surf.com
+RedirectPermanent /--4591.html http://www.mango-surf.com
+RedirectPermanent /--4590.html http://www.mango-surf.com
+RedirectPermanent /--4635.html http://www.mango-surf.com
+RedirectPermanent /--4629.html http://www.mango-surf.com
+RedirectPermanent /--4614.html http://www.mango-surf.com
+RedirectPermanent /--4638.html http://www.mango-surf.com
+RedirectPermanent /--4604.html http://www.mango-surf.com
+RedirectPermanent /--4603.html http://www.mango-surf.com
+RedirectPermanent /--4667.html http://www.mango-surf.com
+RedirectPermanent /--4669.html http://www.mango-surf.com
+RedirectPermanent /--4599.html http://www.mango-surf.com
+RedirectPermanent /--4627.html http://www.mango-surf.com
+RedirectPermanent /--4607.html http://www.mango-surf.com
+RedirectPermanent /--4589.html http://www.mango-surf.com
+RedirectPermanent /--4636.html http://www.mango-surf.com
+RedirectPermanent /--4606.html http://www.mango-surf.com
+RedirectPermanent /--4605.html http://www.mango-surf.com
+RedirectPermanent /--4601.html http://www.mango-surf.com
+RedirectPermanent /--4600.html http://www.mango-surf.com
+RedirectPermanent /--4623.html http://www.mango-surf.com
+RedirectPermanent /--4670.html http://www.mango-surf.com
+RedirectPermanent /--4631.html http://www.mango-surf.com
+RedirectPermanent /--4668.html http://www.mango-surf.com
+RedirectPermanent /--4615.html http://www.mango-surf.com
+RedirectPermanent /--4628.html http://www.mango-surf.com
+RedirectPermanent /--4596.html http://www.mango-surf.com
+RedirectPermanent /--4608.html http://www.mango-surf.com
+RedirectPermanent /--4654.html http://www.mango-surf.com
+RedirectPermanent /--4653.html http://www.mango-surf.com
+RedirectPermanent /--4637.html http://www.mango-surf.com
+RedirectPermanent /--4652-.html http://www.mango-surf.com
+RedirectPermanent /--4617-.html http://www.mango-surf.com
+RedirectPermanent /--4664.html http://www.mango-surf.com
+RedirectPermanent /--4672.html http://www.mango-surf.com
+RedirectPermanent /--4632.html http://www.mango-surf.com
+RedirectPermanent /--4597.html http://www.mango-surf.com
+RedirectPermanent /--4560.html http://www.mango-surf.com
+RedirectPermanent /--4642.html http://www.mango-surf.com
+RedirectPermanent /--4644.html http://www.mango-surf.com
+RedirectPermanent /--4639.html http://www.mango-surf.com
+RedirectPermanent /--4640.html http://www.mango-surf.com
+RedirectPermanent /--4610.html http://www.mango-surf.com
+RedirectPermanent /--4609.html http://www.mango-surf.com
+RedirectPermanent /--4647.html http://www.mango-surf.com
+RedirectPermanent /--4634.html http://www.mango-surf.com
+RedirectPermanent /--4633.html http://www.mango-surf.com
+RedirectPermanent /--4584.html http://www.mango-surf.com
+RedirectPermanent /--4666.html http://www.mango-surf.com
+RedirectPermanent /--4613-.html http://www.mango-surf.com
+RedirectPermanent /--4641.html http://www.mango-surf.com
+RedirectPermanent /--4624.html http://www.mango-surf.com
+RedirectPermanent /--4643.html http://www.mango-surf.com
+RedirectPermanent /--4581.html http://www.mango-surf.com
+RedirectPermanent /--4592.html http://www.mango-surf.com
+RedirectPermanent /--4625.html http://www.mango-surf.com
+RedirectPermanent /--4620.html http://www.mango-surf.com
+RedirectPermanent /--4585.html http://www.mango-surf.com
+RedirectPermanent /--637.html http://www.mango-surf.com
+RedirectPermanent /--4571.html http://www.mango-surf.com
+RedirectPermanent /--4645.html http://www.mango-surf.com
+RedirectPermanent /--4580.html http://www.mango-surf.com
+RedirectPermanent /--4593.html http://www.mango-surf.com
+RedirectPermanent /--4566.html http://www.mango-surf.com
+RedirectPermanent /--4565.html http://www.mango-surf.com
+RedirectPermanent /--4594.html http://www.mango-surf.com
+RedirectPermanent /--4595.html http://www.mango-surf.com
+RedirectPermanent /--4622.html http://www.mango-surf.com
+RedirectPermanent /--4621.html http://www.mango-surf.com
+RedirectPermanent /--4619-.html http://www.mango-surf.com
+RedirectPermanent /--4569.html http://www.mango-surf.com
+RedirectPermanent /--4556.html http://www.mango-surf.com
+RedirectPermanent /--4572.html http://www.mango-surf.com
+RedirectPermanent /--4554.html http://www.mango-surf.com
+RedirectPermanent /--4618.html http://www.mango-surf.com
+RedirectPermanent /--4583.html http://www.mango-surf.com
+RedirectPermanent /--4630.html http://www.mango-surf.com
+RedirectPermanent /--4564.html http://www.mango-surf.com
+RedirectPermanent /--4612-.html http://www.mango-surf.com
+RedirectPermanent /--4598.html http://www.mango-surf.com
+RedirectPermanent /--4579.html http://www.mango-surf.com
+RedirectPermanent /--4577.html http://www.mango-surf.com
+RedirectPermanent /--4558.html http://www.mango-surf.com
+RedirectPermanent /--4602.html http://www.mango-surf.com
+RedirectPermanent /--4561.html http://www.mango-surf.com
+RedirectPermanent /--4578.html http://www.mango-surf.com
+RedirectPermanent /--4557.html http://www.mango-surf.com
+RedirectPermanent /--4559.html http://www.mango-surf.com
+RedirectPermanent /--4586.html http://www.mango-surf.com
+RedirectPermanent /--4676.html http://www.mango-surf.com
+RedirectPermanent /--4615.html http://www.mango-surf.com
+RedirectPermanent /--4617-.html http://www.mango-surf.com
+RedirectPermanent /--4613-.html http://www.mango-surf.com
+RedirectPermanent /--4556.html http://www.mango-surf.com
+RedirectPermanent /--4554.html http://www.mango-surf.com
+RedirectPermanent /--4618.html http://www.mango-surf.com
+RedirectPermanent /--4558.html http://www.mango-surf.com
+RedirectPermanent /--4557.html http://www.mango-surf.com
+RedirectPermanent /--4559.html http://www.mango-surf.com

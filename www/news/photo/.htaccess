@@ -1,0 +1,22 @@
+#--------------------------------------------------
+# Répertoire : /news/photo/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+ErrorDocument 404 /news/photo/erreur.php
+
+
+# Page index + Pager + Region
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)\.html$   /news/photo/article.php?nomfichier=$1&id=$2 [L]
+
+# Article sans numéro de page + pager
+RewriteRule ^([-a-zA-Z-0-9]+)--([0-9]+)-([0-9]+)\.html$   /news/photo/article.php?nomfichier=$1&id=$2&p=$3 [L]

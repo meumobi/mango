@@ -1,0 +1,4 @@
+www/lib/image
+wwwlib/**/templates_c
+www/**/templates_c
+logs
