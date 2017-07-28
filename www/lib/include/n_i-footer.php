@@ -61,10 +61,10 @@
 
 
 <script>
-    //ADTECH.config.page = { protocol: 'http', server: 'adserver.adtech.de', network: '1502.1', siteid: '670202', params: { loc: '100' }};
-    //ADTECH.config.placements[6033207] = { responsive : { useresponsive: true, bounds: [{id: 6033208, min: 0, max: 499 }, {id: 6033207, min: 500, max: 9999 }]}, sizeid: '3055', params: { alias: '', target: '_blank', }};
-    //ADTECH.config.placements[5008877] = { responsive : { useresponsive: true, bounds: [{id: 6035346, min: 0, max: 499 }, {id: 5008877, min: 500, max: 9999 }]}, sizeid: '225', params: { alias: '', target: '_blank' }};
-    //ADTECH.config.placements[5008876] = { responsive : { useresponsive: true, bounds: [{id: 6035345, min: 0, max: 499 }, {id: 5008876, min: 500, max: 9999 }]}, sizeid: '170', params: { alias: '', target: '_blank' }};
+    ADTECH.config.page = { protocol: 'http', server: 'adserver.adtech.de', network: '1502.1', siteid: '670202', params: { loc: '100' }};
+    ADTECH.config.placements[6033207] = { responsive : { useresponsive: true, bounds: [{id: 6033208, min: 0, max: 499 }, {id: 6033207, min: 500, max: 9999 }]}, sizeid: '3055', params: { alias: '', target: '_blank', }};
+    ADTECH.config.placements[5008877] = { responsive : { useresponsive: true, bounds: [{id: 6035346, min: 0, max: 499 }, {id: 5008877, min: 500, max: 9999 }]}, sizeid: '225', params: { alias: '', target: '_blank' }};
+    ADTECH.config.placements[5008876] = { responsive : { useresponsive: true, bounds: [{id: 6035345, min: 0, max: 499 }, {id: 5008876, min: 500, max: 9999 }]}, sizeid: '170', params: { alias: '', target: '_blank' }};
 </script>
 
 
