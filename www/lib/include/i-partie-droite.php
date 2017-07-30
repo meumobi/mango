@@ -33,34 +33,6 @@ elseif ($nbrChemin == 4) $cheminSideBar .= "../../";
 	require($cheminSideBar."lib/include/b-newsletter.php"); 
 	?>
 	
-	<!-- box publicite pave -->	
-	<div class="mrgB20">
-	<!--
-	<script type="text/javascript">
-if (!window.OX_ads) { OX_ads = []; }
-OX_ads.push({ "auid" : "218049" });
-</script>
-<script type="text/javascript">
-document.write('<scr'+'ipt src="http://ox-d.adventuremediaglobal.com/w/1.0/jstag"><\/scr'+'ipt>');
-</script>
-<noscript><iframe id="52161a5c5b772" name="52161a5c5b772" src="http://ox-d.adventuremediaglobal.com/w/1.0/afr?auid=218049&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="300" height="250"><a href="http://ox-d.adventuremediaglobal.com/w/1.0/rc?cs=52161a5c5b772&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ox-d.adventuremediaglobal.com/w/1.0/ai?auid=218049&cs=52161a5c5b772&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
--->
-
-	
-	
-	
-	
-	
-	<div id='div-gpt-ad-1361306082999-0' style='width:300px; height:250px;'>
-			<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1361306082999-0'); });
-		</script>
-	</div>
-		
-	</div>
-	<!-- box publicite -->
-	
-	
 	<?php 
 	//Bouton share
 	require($cheminSideBar."lib/include/b-share.php"); 

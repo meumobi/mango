@@ -1,5 +1,3 @@
-<div id="6033207"><noscript><a href="http://adserver.adtech.de/adlink|3.0|1502.1|6033207|0|16|ADTECH;loc=300;alias=" target="_blank"><img src="http://adserver.adtech.de/adserv|3.0|1502.1|6033207|0|16|ADTECH;loc=300;alias=" border="0" width="1" height="1"></a></noscript></div>
-
 <?php if($device[1] == "_1"){ ?>
 
     <header id="header" role="banner" class="header-mango-desktop">
@@ -32,7 +30,7 @@
     <!-- Publicite -->
 
     <div class="wrapper line">
-        <div class="wSite line txtcenter" id="5008877"><noscript><a href="http://adserver.adtech.de/adlink|3.0|1502.1|5008877|0|225|ADTECH;loc=300;key=key1+key2+key3+key4;alias=" target="_blank"><img src="http://adserver.adtech.de/adserv|3.0|1502.1|5008877|0|225|ADTECH;loc=300;key=key1+key2+key3+key4;alias=" border="0" width="728" height="90"></a></noscript></div>
+        <div class="wSite line txtcenter" id="6489219"></div>
         <div class="line">&nbsp;</div>
     </div>
     <!-- Publicite -->
@@ -61,16 +59,5 @@
             <li><a href="/lexique/" class="lnk-menu <?php if($rubrique == 10) echo 'menu-mango-hover'; ?>" title="Lexique">Lexique</a></li>
         </ul>
     </nav>
-    <div>
-
-
-
-
-    </div>
-    <div class="wrapper-mobile">
-        <div class="wSite line txtcenter" id="5008877"><noscript><a href="http://adserver.adtech.de/adlink|3.0|1502.1|5008877|0|225|ADTECH;loc=300;key=key1+key2+key3+key4;alias=" target="_blank"><img src="http://adserver.adtech.de/adserv|3.0|1502.1|5008877|0|225|ADTECH;loc=300;key=key1+key2+key3+key4;alias=" border="0" width="728" height="90"></a></noscript></div>
-    </div>
-
-
 
 <?php } ?>
