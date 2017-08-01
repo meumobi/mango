@@ -68,6 +68,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/php/smarty.php');
 </head>
 
 <body>
+<!-- Publicite -->
+<div id="6494071"></div>
+<!-- Publicite -->
+
 <?php require("lib/include/n_i-prebid.php"); ?>
 <?php require("lib/include/n_i-header.php"); ?>
 

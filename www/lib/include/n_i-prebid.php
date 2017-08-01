@@ -1,7 +1,15 @@
 <script type="text/javascript" charset="utf-8">
 
-var BID_TIMEOUT = 1200;
+var BID_TIMEOUT = 1000;
 var initAdServerSet;
+
+function lookupByToken(array, token) {
+  var lookup = [];
+  for (var i = 0, len = array.length; i < len; i++) {
+      lookup[array[i][token]] = array[i];
+  }
+  return lookup;
+}
 
 function initAdserver() {
   if (initAdServerSet) return;
@@ -14,19 +22,24 @@ function initAdserver() {
       server: 'adserver.adtech.de',
       network: '1502.1',
       siteid: '670202',
-      params: { loc: '100' },
-      fif: { usefif: true }
+      params: { 
+        loc: '100',
+        /*
+        Add HERE custom key/value params
+        kv_vdi: 'and the best is...',
+        kv_jb: 'and the winner is...'
+        */
+      },
     };
 
     ADTECH.enqueueAd(6489219);
-    ADTECH.enqueueAd(5025408);
+    ADTECH.enqueueAd(6490489);
+    ADTECH.enqueueAd(6494071);
     ADTECH.executeQueue();
 
     })();
     initAdServerSet = true;
   }
-
-setTimeout(initAdserver, BID_TIMEOUT);
 
 (function () {
   var d = document;
@@ -37,31 +50,53 @@ setTimeout(initAdserver, BID_TIMEOUT);
   target.insertBefore(pbs, target.firstChild);
 })();
 
-var adUnits = [{
-  code: '6489219',
-  sizes: [[728, 90], [970, 90], [970, 250]],
-  bids: [
-    {
-      bidder: 'smartadserver',
-      params: {
-        domain: 'http://www8.smartadserver.com',
-        siteId: '170999',
-        pageId: '842325',
-        formatId: '45846'      
-      }
-    }, 
-    {
-      bidder: 'rubicon',
-      params: {
-        accountId: '14794',
-        siteId: '83734',
-        zoneId: '395240'
-      }
-    }
-  ]},
+var adUnits = [
   {
-    code: '5025408',
+    code: '6494071',
+    bounds: [
+      {id: 6494072, min: 0, max: 768 },
+      {id: 6494071, min: 769, max: 9999 },
+    ],
+    sizeid: '16',
+    bids: []  
+  },
+  {
+    code: '6489219',
+    fif: { usefif: true },
+    sizes: [[728, 90], [970, 90], [970, 250]],
+    bounds: [
+      {id: 6493810, min: 0, max: 768 },
+      {id: 6489219, min: 769, max: 9999 },
+    ],
+    sizeid: '225', 
+    bids: [
+      {
+        bidder: 'smartadserver',
+        params: {
+          domain: 'http://www8.smartadserver.com',
+          siteId: '170999',
+          pageId: '842325',
+          formatId: '45846'      
+        }
+      }, 
+      {
+        bidder: 'rubicon',
+        params: {
+          accountId: '14794',
+          siteId: '83734',
+          zoneId: '395240'
+        }
+      }
+    ]},
+  {
+    code: '6490489',
+    fif: { usefif: true },
     sizes: [[300, 600], [300, 250]],
+    bounds: [
+      {id: 6494025, min: 0, max: 768 },
+      {id: 6490489, min: 769, max: 9999 },
+    ],
+    sizeid: '170', 
     bids: [
       {
         bidder: 'smartadserver',
@@ -88,9 +123,9 @@ pbjs.que = pbjs.que || [];
 
 pbjs.que.push(function() {
   pbjs.addAdUnits(adUnits);
-  pbjs.enableSendAllBids();
+  //pbjs.enableSendAllBids();
   pbjs.requestBids({
-    timeout: 1000, // The primary timeout is set here
+    timeout: BID_TIMEOUT, // The primary timeout is set here
     bidsBackHandler: sendAdserverRequest
   });
 
@@ -106,49 +141,56 @@ pbjs.que.push(function() {
  * @param {String} response.mpAliasKey The key of the alias.
  * @param {String} response.adContainerId The id of the container associated with the bid in the DOM.
  */
-function sendAdserverRequest(response) {
+function sendAdserverRequest(bidResponses) {
 
-  console.log(response);
-  var resp = response['6489219']['bids'][0];
+  var targetingParams = pbjs.getAdserverTargeting();
+  var responses = pbjs.getBidResponses()
+  console.log('All bid responses', responses);
+  console.log('Targeting parameters from all ad units', targetingParams);
 
   if (pbjs.adserverRequestSent) return;
   pbjs.adserverRequestSent = true;
 
-  var slotName = resp.adUnitCode + '';
+  var adUnitsByToken = lookupByToken(adUnits, 'code');
+  console.log('adUnits', adUnitsByToken);
 
-  var kvkey = 'kvhb_pb_' + resp.bidderCode.substring(0,5);
-  //var key = 'kvsmart';// + resp.bidderCode;
-  var kvkey2 = 'kvhb_adid_' + resp.bidderCode.substring(0,5);
-  var key = 'hb_pb_' + resp.bidderCode;
-  //var key = 'kvsmart';// + resp.bidderCode;
-  var key2 = 'hb_adid_' + resp.bidderCode;
+  for (var slot in adUnitsByToken) {
 
-  //paramsObj['kv' + key] = resp.cpm + '';
-
-  ADTECH.config.placements[slotName] = { 
-    responsive : { 
-      useresponsive: true, 
-      bounds: [
-        {id: 6493810, min: 0, max: 768 },
-        {id: 6489219, min: 769, max: 9999 },
-        ]}, 
-      sizeid: '225', 
-      params: { 
+      console.log('Current slot', slot);
+      var paramsObj = {
         alias: '', 
         target: '_blank',
-        loc: '100',
-        [kvkey]: resp.cpm.toFixed(1) + '',
-        [kvkey2]: resp.adId,
-        [key]: resp.cpm.toFixed(1) + '',
-        [key2]: resp.adId
+        loc: '100'
+      };
+      
+      ADTECH.config.placements[slot] = {
+        responsive : { 
+          useresponsive: true, 
+        }
+      };
+
+      if (adUnitsByToken[slot].fif) {
+        ADTECH.config.placements[slot].fif = adUnitsByToken[slot].fif;
       }
-  };
-  //paramsObj['kv' + response.mpAliasKey] = response.alias;
-  //ADTECH.config.placements[slotName] = {};
-  ADTECH.config.placements[slotName].placement = resp.adUnitCode;
+
+      if (adUnitsByToken[slot].bounds) {
+        ADTECH.config.placements[slot].responsive.bounds = adUnitsByToken[slot].bounds;
+      }
+
+      if (adUnitsByToken[slot].sizeid) {
+        ADTECH.config.placements[slot].sizeid = adUnitsByToken[slot].sizeid;
+      }
+
+      if (targetingParams.hasOwnProperty(slot)) {
+        var bidderCode = targetingParams[slot]['hb_bidder'];
+
+        paramsObj['kvhb_pb_' + bidderCode.substring(0,5)] = parseFloat(targetingParams[slot]['hb_pb']).toFixed(1);
+        paramsObj['kvhb_adid_' + bidderCode.substring(0,5)] = targetingParams[slot]['hb_adid'];
+      }
+      ADTECH.config.placements[slot].params = paramsObj;
+  }
 
   initAdserver();
-
 }
 </script>
 
