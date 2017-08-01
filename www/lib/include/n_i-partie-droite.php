@@ -17,6 +17,13 @@ elseif ($nbrChemin == 4) $cheminSideBar .= "../../";*/
 
 
 	<?php require($cheminSideBar."lib/include/n_b-newsletter.php"); ?>
+
+	<!-- Publicite -->
+
+    <div class="line mb2 pa1 bgGrisClair txtcenter" >
+        <div id="6490489"></div>
+    </div>
+    <!-- Publicite -->
 	
 	<?php
 	

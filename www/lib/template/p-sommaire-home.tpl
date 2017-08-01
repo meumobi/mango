@@ -67,6 +67,11 @@
 
             {if $i == 1}
                 <aside class="mod right wColDroite phone-hidden tablet-hidden">
+                    	<!-- Publicite -->
+                        <div class="line mb2 pa1 bgGrisClair txtcenter" >
+                            <div id="6490489"></div>
+                        </div>
+                        <!-- Publicite -->
                     <section class="mb2">
                         <div class="titreRubrique line mb2">Inscription Newsletter</div>
                         <form action="http://mango-surf.us6.list-manage1.com/subscribe/post?u=8409ca683c7a680d87e380f2a&amp;id=2a787bac56" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
