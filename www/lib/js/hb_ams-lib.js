@@ -48,7 +48,21 @@ var adUnitsByToken = lookupByToken(adUnits, 'code');
 if (adUnits) {
     pbjs.que.push(function () {
         pbjs.addAdUnits(adUnits);
-        //pbjs.enableSendAllBids();
+        pbjs.setPriceGranularity('dense');
+        pbjs.bidderSettings = {
+            rubicon: {
+                bidCpmAdjustment : function(bidCpm){
+                // adjust the bid in real time before the auction takes place
+                return bidCpm * 0.80;
+                }
+            },
+            smartadserver: {
+                bidCpmAdjustment : function(bidCpm){
+                // adjust the bid in real time before the auction takes place
+                return bidCpm * 0.85;
+                }
+            }
+        };
         pbjs.requestBids({
             timeout: BID_TIMEOUT, // The primary timeout is set here
             bidsBackHandler: sendAdserverRequest
