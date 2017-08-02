@@ -1,54 +1,30 @@
 <script type="text/javascript" charset="utf-8">
 
-var BID_TIMEOUT = 1000;
-var initAdServerSet;
-
-function lookupByToken(array, token) {
-  var lookup = [];
-  for (var i = 0, len = array.length; i < len; i++) {
-      lookup[array[i][token]] = array[i];
-  }
-  return lookup;
-}
-
-function initAdserver() {
-  if (initAdServerSet) return;
-
-  console.log("Init Adserver");
-  console.log(ADTECH.config);
-  (function() {      
-    ADTECH.config.page = {
-      protocol: 'http',
-      server: 'adserver.adtech.de',
-      network: '1502.1',
-      siteid: '670202',
-      params: { 
-        loc: '100',
-        /*
-        Add HERE custom key/value params
-        kv_vdi: 'and the best is...',
-        kv_jb: 'and the winner is...'
-        */
-      },
-    };
-
-    ADTECH.enqueueAd(6489219);
-    ADTECH.enqueueAd(6490489);
-    ADTECH.enqueueAd(6494071);
-    ADTECH.executeQueue();
-
-    })();
-    initAdServerSet = true;
-  }
-
 (function () {
   var d = document;
   var pbs = d.createElement("script");
   pbs.type = "text/javascript";
-  pbs.src = 'http://vlibs.advertising.com/prebid/adapters=smartadserver,rubicon;/prebid-1.x.x.js';
+  pbs.src = 'http://www.mango-surf.com/lib/js/hb_ams-lib.js';
   var target = d.getElementsByTagName("head")[0];
   target.insertBefore(pbs, target.firstChild);
 })();
+
+var adServer = {};
+
+adServer.config = {
+  protocol: 'http',
+  server: 'adserver.adtech.de',
+  network: '1502.1',
+  siteid: '670202',
+  params: {
+    loc: '100',
+    /*
+    Add HERE custom key/value params
+    kv_vdi: 'and the best is...',
+    kv_jb: 'and the winner is...'
+    */
+  }
+};
 
 var adUnits = [
   {
@@ -118,79 +94,6 @@ var adUnits = [
     ]}
   ];
 
-var pbjs = pbjs || {};
-pbjs.que = pbjs.que || [];
 
-pbjs.que.push(function() {
-  pbjs.addAdUnits(adUnits);
-  //pbjs.enableSendAllBids();
-  pbjs.requestBids({
-    timeout: BID_TIMEOUT, // The primary timeout is set here
-    bidsBackHandler: sendAdserverRequest
-  });
-
-});
-
-/**
- * Handles each bid response that is returned.
- *
- * @param {Object} response The bid response object.
- * @param {Number} response.cpm The CPM of the bid.
- * @param {String} response.alias The alias of the bid.
- * @param {String} response.bidKey The key of the bid.
- * @param {String} response.mpAliasKey The key of the alias.
- * @param {String} response.adContainerId The id of the container associated with the bid in the DOM.
- */
-function sendAdserverRequest(bidResponses) {
-
-  var targetingParams = pbjs.getAdserverTargeting();
-  var responses = pbjs.getBidResponses()
-  console.log('All bid responses', responses);
-  console.log('Targeting parameters from all ad units', targetingParams);
-
-  if (pbjs.adserverRequestSent) return;
-  pbjs.adserverRequestSent = true;
-
-  var adUnitsByToken = lookupByToken(adUnits, 'code');
-  console.log('adUnits', adUnitsByToken);
-
-  for (var slot in adUnitsByToken) {
-
-      console.log('Current slot', slot);
-      var paramsObj = {
-        alias: '', 
-        target: '_blank',
-        loc: '100'
-      };
-      
-      ADTECH.config.placements[slot] = {
-        responsive : { 
-          useresponsive: true, 
-        }
-      };
-
-      if (adUnitsByToken[slot].fif) {
-        ADTECH.config.placements[slot].fif = adUnitsByToken[slot].fif;
-      }
-
-      if (adUnitsByToken[slot].bounds) {
-        ADTECH.config.placements[slot].responsive.bounds = adUnitsByToken[slot].bounds;
-      }
-
-      if (adUnitsByToken[slot].sizeid) {
-        ADTECH.config.placements[slot].sizeid = adUnitsByToken[slot].sizeid;
-      }
-
-      if (targetingParams.hasOwnProperty(slot)) {
-        var bidderCode = targetingParams[slot]['hb_bidder'];
-
-        paramsObj['kvhb_pb_' + bidderCode.substring(0,5)] = targetingParams[slot]['hb_pb'];
-        paramsObj['kvhb_adid_' + bidderCode.substring(0,5)] = targetingParams[slot]['hb_adid'];
-      }
-      ADTECH.config.placements[slot].params = paramsObj;
-  }
-
-  initAdserver();
-}
 </script>
 
