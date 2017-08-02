@@ -184,7 +184,7 @@ function sendAdserverRequest(bidResponses) {
       if (targetingParams.hasOwnProperty(slot)) {
         var bidderCode = targetingParams[slot]['hb_bidder'];
 
-        paramsObj['kvhb_pb_' + bidderCode.substring(0,5)] = parseFloat(targetingParams[slot]['hb_pb']).toFixed(1);
+        paramsObj['kvhb_pb_' + bidderCode.substring(0,5)] = targetingParams[slot]['hb_pb'];
         paramsObj['kvhb_adid_' + bidderCode.substring(0,5)] = targetingParams[slot]['hb_adid'];
       }
       ADTECH.config.placements[slot].params = paramsObj;
