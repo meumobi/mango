@@ -72,7 +72,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/lib/php/smarty.php');
 <div id="6494071"></div>
 <!-- Publicite -->
 
-<?php require("lib/include/n_i-prebid.php"); ?>
 <?php require("lib/include/n_i-header.php"); ?>
 
 <div class="wSite">

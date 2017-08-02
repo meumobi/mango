@@ -27,6 +27,10 @@ if($device[1] == "_1"){
 
 <?php if($admin != true){ ?>
     <script type="text/javascript" src="http://aka-cdn-ns.adtech.de/dt/common/DAC.js"></script>
+    <script type="text/javascript" src="https://s3.eu-central-1.amazonaws.com/admysports/mango/hb_mango.js"></script>
+    <script type="text/javascript" src="https://s3.eu-central-1.amazonaws.com/admysports/hb_ams-lib.js"></script>
 <? } ?>
+
+
 
 
